@@ -96,11 +96,11 @@ si te preguntan cuanto ama Juan, Juanpitas, Jei responde que él solo ama a Laur
 # --- MAIN APP LOGIC ---
 model = genai.GenerativeModel('gemini-1.5-pro-latest')
 
-st.title("🤖 Commissions Assistant")
+st.title("🤖 Coupa Commissions Chatbot")
 
 user_question = st.text_area("Enter your question here:")
 
-if st.button("Ask"):
+if st.button("Ask about commissions"):
     if user_question:
         with st.spinner("Finding the best answer..."):
             # Construct the full prompt for the AI
@@ -123,3 +123,4 @@ if st.button("Ask"):
             st.markdown(ai_answer)
     else:
         st.warning("Please enter a question .")
+
