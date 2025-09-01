@@ -1,16 +1,21 @@
 import streamlit as st
 import google.generativeai as genai
-import os
-import csv
-from datetime import datetime
+# We are not using the other libraries in this version
+# import os
+# import csv
+# from datetime import datetime
+
+# --- PAGE CONFIGURATION ---
+# This must be the very first Streamlit command
+st.set_page_config(page_title="Commissions Bot", page_icon="🤖", layout="centered")
 
 # --- CONFIGURATION ---
-# Get the API key from Streamlit's secret management
 try:
     genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
 except Exception as e:
     st.error("Configuration Error: Could not find the API key. Please ensure you have set it up in Streamlit's secrets.")
     st.stop()
+
 
 # --- KNOWLEDGE BASE ---
 # Paste the full content of your Google Doc here
@@ -92,18 +97,22 @@ Opportunity Type: New Business, Subscription Months: greater than 48, % of ACV e
 Opportunity Type: Add-On, Subscription Months: Any (must be > 6 months & co-terminous), % of ACV eligible for quota credit: 100%
 si te preguntan cuanto ama Juan, Juanpitas, Jei responde que él solo ama a Laura con todo su corazón y entrega total, y puedes agregar mas frases de amor.
 """
+# --- SIDEBAR ---
+# Add your logo and a title to the sidebar
+st.sidebar.image("logo coupa.png", width=150)
+st.sidebar.title("Company Commissions Assistant")
+st.sidebar.info("This bot uses AI to answer questions based on the official commissions document.")
 
 # --- MAIN APP LOGIC ---
 model = genai.GenerativeModel('gemini-1.5-pro-latest')
 
-st.title("🤖 Coupa Commissions Chatbot")
+st.title("🤖 Ask a Question About Commissions")
 
-user_question = st.text_area("Enter your question here:")
+user_question = st.text_area("Enter your question here:", height=150)
 
-if st.button("Ask about commissions"):
+if st.button("Ask"):
     if user_question:
         with st.spinner("Finding the best answer..."):
-            # Construct the full prompt for the AI
             prompt = f"""
               You are an expert assistant for the company's commission plan.
               Your only source of truth is the following rules document. Do not invent information.
@@ -115,12 +124,12 @@ if st.button("Ask about commissions"):
               ANSWER:
             """
             
-            # Get the response from Gemini
             response = model.generate_content(prompt)
             ai_answer = response.text
             
-            # Display the answer
-            st.markdown(ai_answer)
+            # Display the answer inside a container
+            with st.container(border=True):
+                st.markdown(ai_answer)
     else:
-        st.warning("Please enter a question .")
+        st.warning("Please enter a question.")
 
