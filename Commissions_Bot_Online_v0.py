@@ -99,7 +99,7 @@ si te preguntan cuanto ama Juan, Juanpitas, Jei responde que él solo ama a Laur
 """
 # --- SIDEBAR ---
 # Add your logo and a title to the sidebar
-st.sidebar.image("logo Coupa.png", width=150)
+st.sidebar.image("Logo Coupa.png", width=150)
 st.sidebar.title("Company Commissions Assistant")
 st.sidebar.info("This bot uses AI to answer questions based on the official commissions document.")
 
@@ -132,5 +132,6 @@ if st.button("Ask"):
                 st.markdown(ai_answer)
     else:
         st.warning("Please enter a question.")
+
 
 
