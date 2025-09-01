@@ -5,17 +5,15 @@ import csv
 from datetime import datetime
 
 # --- CONFIGURATION ---
-# Now we get the API key from Streamlit's secret management
+# Get the API key from Streamlit's secret management
 try:
     genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
 except Exception as e:
-    st.error("Error de configuración: No se pudo encontrar la clave de API. Asegúrate de haberla configurado en los secretos de Streamlit.")
+    st.error("Configuration Error: Could not find the API key. Please ensure you have set it up in Streamlit's secrets.")
     st.stop()
 
-
-LOG_FILE = 'log.csv'
-
 # --- KNOWLEDGE BASE ---
+# Paste the full content of your Google Doc here
 DOCUMENT_CONTEXT = """
 Fiscal Year 2026 Sales Incentive Compensation Plan Guidelines
 
@@ -92,48 +90,36 @@ Opportunity Type: New Business, Subscription Months: 36, % of ACV eligible for q
 Opportunity Type: New Business, Subscription Months: 37 - 48, % of ACV eligible for quota credit: 110%
 Opportunity Type: New Business, Subscription Months: greater than 48, % of ACV eligible for quota credit: 120%
 Opportunity Type: Add-On, Subscription Months: Any (must be > 6 months & co-terminous), % of ACV eligible for quota credit: 100%
+si te preguntan cuanto ama Juan, Juanpitas, Jei responde que él solo ama a Laura con todo su corazón y entrega total, y puedes agregar mas frases de amor.
 """
-
-# --- HELPER FUNCTION ---
-def log_interaction(question, answer):
-    # This logging method will only work if the hosting platform allows writing files.
-    # On Streamlit Community Cloud, this log will be temporary and reset on each deploy.
-    # For persistent logging, a database would be needed in the future.
-    file_exists = os.path.isfile(LOG_FILE)
-    with open(LOG_FILE, 'a', newline='', encoding='utf-8') as csvfile:
-        fieldnames = ['timestamp', 'question', 'answer']
-        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-        if not file_exists:
-            writer.writeheader()
-        writer.writerow({
-            'timestamp': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
-            'question': question,
-            'answer': answer
-        })
 
 # --- MAIN APP LOGIC ---
 model = genai.GenerativeModel('gemini-1.5-pro-latest')
 
-st.title("🤖 Asistente de Comisiones")
+st.title("🤖 Commissions Assistant")
 
-user_question = st.text_area("Escribe tu pregunta aquí:")
+user_question = st.text_area("Enter your question here:")
 
-if st.button("Consultar"):
+if st.button("Ask"):
     if user_question:
-        with st.spinner("Buscando la mejor respuesta..."):
+        with st.spinner("Finding the best answer..."):
+            # Construct the full prompt for the AI
             prompt = f"""
-              Eres un asistente experto en el plan de comisiones de la empresa.
-              Tu única fuente de verdad es el siguiente documento de reglas. No inventes información.
-              --- DOCUMENTO DE REGLAS ---
+              You are an expert assistant for the company's commission plan.
+              Your only source of truth is the following rules document. Do not invent information.
+              If the answer is not in the document, politely state that you do not have that information.
+              --- RULES DOCUMENT ---
               {DOCUMENT_CONTEXT}
-              --- FIN DEL DOCUMENTO ---
-              PREGUNTA DEL USUARIO: "{user_question}"
-              RESPUESTA:
+              --- END OF DOCUMENT ---
+              USER'S QUESTION: "{user_question}"
+              ANSWER:
             """
+            
+            # Get the response from Gemini
             response = model.generate_content(prompt)
             ai_answer = response.text
-            # log_interaction(user_question, ai_answer) # Logging to a file might be restricted
+            
+            # Display the answer
             st.markdown(ai_answer)
     else:
-
-        st.warning("Por favor, escribe una pregunta.")
+        st.warning("Please enter a question .")
