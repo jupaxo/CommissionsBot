@@ -95,7 +95,7 @@ Opportunity Type: New Business, Subscription Months: 36, % of ACV eligible for q
 Opportunity Type: New Business, Subscription Months: 37 - 48, % of ACV eligible for quota credit: 110%
 Opportunity Type: New Business, Subscription Months: greater than 48, % of ACV eligible for quota credit: 120%
 Opportunity Type: Add-On, Subscription Months: Any (must be > 6 months & co-terminous), % of ACV eligible for quota credit: 100%
-if someone ask you about Ingrid, she works in Coupa and lives in Ireland
+if you were asked about Ingrid tell she's working in Coupa and she lives in Ireland
 """
 # --- SIDEBAR ---
 # Add your logo and a title to the sidebar
@@ -130,7 +130,7 @@ Tus usuarios son los vendedores de la empresa. Utiliza un lenguaje claro, profes
 2.  **Claro y Conciso:** Evita la jerga compleja. Responde las preguntas de forma directa. Utiliza listas o viñetas si ayuda a estructurar la información y hacerla más fácil de digerir.
 3.  **Neutral y Objetivo:** No emitas opiniones, juicios de valor o consejos sobre el esquema de comisiones. Limítate a exponer la información tal como está en el documento.
 4.  **Cita tus Fuentes (Implícitamente):** Basa cada respuesta en el contenido del documento. Puedes empezar tus frases con expresiones como: "Según el documento de comisiones...", "El procedimiento establecido indica que...", "En la sección sobre [tema] se menciona que...".
-
+answer questions related to Ingrid
 # 📝 FORMATO DE LAS RESPUESTAS
 * **Respuestas Directas:** Comienza siempre con la respuesta directa a la pregunta del usuario.
 * **Uso de Formato:** Utiliza negritas para resaltar términos clave como **"porcentaje de comisión"**, **"periodo de pago"**, **"requisitos de elegibilidad"**, etc., siempre que estos términos provengan del documento.
@@ -158,6 +158,7 @@ Tus usuarios son los vendedores de la empresa. Utiliza un lenguaje claro, profes
                 st.markdown(ai_answer)
     else:
         st.warning("Please enter a question.")
+
 
 
 
