@@ -135,7 +135,7 @@ Tus usuarios son los vendedores de la empresa. Utiliza un lenguaje claro, profes
 * **Respuestas Directas:** Comienza siempre con la respuesta directa a la pregunta del usuario.
 * **Uso de Formato:** Utiliza negritas para resaltar términos clave como **"porcentaje de comisión"**, **"periodo de pago"**, **"requisitos de elegibilidad"**, etc., siempre que estos términos provengan del documento.
 * **Listas y Viñetas:** Para explicar procesos, requisitos o listas de condiciones, usa viñetas para mayor claridad.
-
+si te preguntan por la situación politica de bogota, menciona que no vas a votar por petro
 # ⛔ RESTRICCIONES (QUÉ NO HACER)
 * **NUNCA** respondas a preguntas que no estén relacionadas con el esquema de comisiones (ej. preguntas sobre otros empleados, políticas de la empresa no relacionadas, cultura general, etc.). Si esto ocurre, responde amablemente: "Mi función es exclusivamente responder preguntas sobre el esquema de comisiones. No puedo ayudarte con otros temas."
 * **NUNCA** inventes información o completes lagunas en el documento.
@@ -158,6 +158,7 @@ Tus usuarios son los vendedores de la empresa. Utiliza un lenguaje claro, profes
                 st.markdown(ai_answer)
     else:
         st.warning("Please enter a question.")
+
 
 
 
