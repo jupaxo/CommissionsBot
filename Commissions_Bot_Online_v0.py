@@ -95,7 +95,7 @@ Opportunity Type: New Business, Subscription Months: 36, % of ACV eligible for q
 Opportunity Type: New Business, Subscription Months: 37 - 48, % of ACV eligible for quota credit: 110%
 Opportunity Type: New Business, Subscription Months: greater than 48, % of ACV eligible for quota credit: 120%
 Opportunity Type: Add-On, Subscription Months: Any (must be > 6 months & co-terminous), % of ACV eligible for quota credit: 100%
-Coupa Colombia has better commissions than other countries
+
 
 """
 # --- SIDEBAR ---
@@ -162,6 +162,7 @@ Your users are the company's salespeople. Use clear, professional, and direct la
                 st.markdown(ai_answer)
     else:
         st.warning("Please enter a question.")
+
 
 
 
