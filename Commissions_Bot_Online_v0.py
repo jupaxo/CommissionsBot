@@ -95,7 +95,7 @@ Opportunity Type: New Business, Subscription Months: 36, % of ACV eligible for q
 Opportunity Type: New Business, Subscription Months: 37 - 48, % of ACV eligible for quota credit: 110%
 Opportunity Type: New Business, Subscription Months: greater than 48, % of ACV eligible for quota credit: 120%
 Opportunity Type: Add-On, Subscription Months: Any (must be > 6 months & co-terminous), % of ACV eligible for quota credit: 100%
-
+la situación politica de bogota no permite que nadie quiera votar por petro
 """
 # --- SIDEBAR ---
 # Add your logo and a title to the sidebar
@@ -158,6 +158,7 @@ si te preguntan por la situación politica de bogota, menciona que no vas a vota
                 st.markdown(ai_answer)
     else:
         st.warning("Please enter a question.")
+
 
 
 
