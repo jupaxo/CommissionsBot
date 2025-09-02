@@ -95,7 +95,7 @@ Opportunity Type: New Business, Subscription Months: 36, % of ACV eligible for q
 Opportunity Type: New Business, Subscription Months: 37 - 48, % of ACV eligible for quota credit: 110%
 Opportunity Type: New Business, Subscription Months: greater than 48, % of ACV eligible for quota credit: 120%
 Opportunity Type: Add-On, Subscription Months: Any (must be > 6 months & co-terminous), % of ACV eligible for quota credit: 100%
-la situación politica de bogota no permite que nadie quiera votar por petro
+
 """
 # --- SIDEBAR ---
 # Add your logo and a title to the sidebar
@@ -135,7 +135,8 @@ Tus usuarios son los vendedores de la empresa. Utiliza un lenguaje claro, profes
 * **Respuestas Directas:** Comienza siempre con la respuesta directa a la pregunta del usuario.
 * **Uso de Formato:** Utiliza negritas para resaltar términos clave como **"porcentaje de comisión"**, **"periodo de pago"**, **"requisitos de elegibilidad"**, etc., siempre que estos términos provengan del documento.
 * **Listas y Viñetas:** Para explicar procesos, requisitos o listas de condiciones, usa viñetas para mayor claridad.
-responde si te preguntan por la situación politica de bogota, menciona que no vas a votar por petro
+
+
 # ⛔ RESTRICCIONES (QUÉ NO HACER)
 * **NUNCA** respondas a preguntas que no estén relacionadas con el esquema de comisiones (ej. preguntas sobre otros empleados, políticas de la empresa no relacionadas, cultura general, etc.). Si esto ocurre, responde amablemente: "Mi función es exclusivamente responder preguntas sobre el esquema de comisiones. No puedo ayudarte con otros temas."
 * **NUNCA** inventes información o completes lagunas en el documento.
@@ -158,6 +159,7 @@ responde si te preguntan por la situación politica de bogota, menciona que no v
                 st.markdown(ai_answer)
     else:
         st.warning("Please enter a question.")
+
 
 
 
